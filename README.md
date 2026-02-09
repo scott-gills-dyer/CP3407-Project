@@ -19,8 +19,8 @@ The following is the list of items, which are required to be completed.
 It is recommended to complete this assignment in a group of 2-4 students.
 1. Koen Meecham
 2. Ty Cabassi
-3. Name 3
-4. Name 4
+3. Scott Dyer
+4. Kenneth Njeri
 
 
 # Project planning BEFORE iteration-1, (see chapters 1-3)
