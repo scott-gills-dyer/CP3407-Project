@@ -6,11 +6,12 @@ Other versions: Landing page, Home page, Main page, Start page
 
 
 ## Priority: 10 (e.g. latest for iteration-1)
+Priority Notes:
 Iteration 1 – Must-have for MVP (first impression + navigation entry point)
 Iteration 2 – Add testimonials, promotions, more polish
 
 
-## Estimation: e.g. 2 days
+## Estimation: 1 day
 Any notes on estimation go here. Keep your planning poker game numbers. For example
 * Scott: 1 day (e.g. estimated before iteration-1)
 * Kenneth: 2 days
