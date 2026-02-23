@@ -22,8 +22,8 @@ Admins can log in securely to access admin-only functions.
 
 
 ## Tasks:
-Task 1 – Create admin login page, Estimation 0.25 days
-Task 2 – Implement authentication logic, Estimation 0.25 days
-Task 3 – Add role-based access control, Estimation 0.25 days
-Task 4 – Secure admin routes (middleware), Estimation 0.25 days
+Task 1 – Create admin login page, Estimation 0.25 days  
+Task 2 – Implement authentication logic, Estimation 0.25 days  
+Task 3 – Add role-based access control, Estimation 0.25 days  
+Task 4 – Secure admin routes (middleware), Estimation 0.25 days  
 
