@@ -3,7 +3,6 @@
 ## Priority: 10
 Priority Notes:
 Iteration 1 – Secure admin routes and basic admin login  
-Iteration 2 – Admin dashboard features
 
 ## Estimation: 1 day
 Planning Poker:
