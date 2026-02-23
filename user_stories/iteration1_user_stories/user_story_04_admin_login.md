@@ -6,9 +6,9 @@ Iteration 1 – Secure admin routes and basic admin login
 
 ## Estimation: 1 day
 Planning Poker:
-Ty: 1 day
-Scott: 2 days
-Koen: 1 day
+Ty: 1 day  
+Scott: 2 days  
+Koen: 1 day  
 Kenneth agreed: 1 day
 
 ## Assumptions:
