@@ -37,5 +37,3 @@ Task 5, Estimation 0.5 days: Test connectivity from backend and verify CRUD oper
 
 ## Completed:
 
-
-UI Design:
