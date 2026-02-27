@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Landing from "./Landing";
+import Landing from "./landing";
 import Restaurants from "./Restaurants";
 
 function App() {
