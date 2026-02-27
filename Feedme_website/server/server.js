@@ -11,11 +11,12 @@ app.use(express.json());
 const PORT = process.env.PORT || 5000;
 
 // ✅ Connect to MySQL using environment variables
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
+const connection = mysql.createConnection({
+  host: process.env.DB_HOST,     // uses your RDS host
+  user: process.env.DB_USER,     // uses admin
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  port: 3306                     // default MySQL port
 });
 
 db.connect((err) => {
