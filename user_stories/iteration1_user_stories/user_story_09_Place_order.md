@@ -3,6 +3,7 @@
 # User story title: Place Order
 Other versions: Pay online, Card payment, Secure checkout payment
 
+https://github.com/KoenMeecham/CP3407-Project/issues/11#issue-3956099391
 
 ## Priority: 10 
 Priority Notes:
