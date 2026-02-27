@@ -1,13 +1,8 @@
 
-
-
-Create more md files like this one as needed. Place them into the same folder 
-as this [user_stories folder](./)
-
 # User story title: Restaurant Account Setup
 Other versions: Restaurant registration, Create restaurant profile, Restaurant signup
 
-
+https://github.com/KoenMeecham/CP3407-Project/issues/12#issue-3956131349
 
 ## Priority: 10 (e.g. latest for iteration-1)
 Iteration 1 – Basic restaurant signup + store details
