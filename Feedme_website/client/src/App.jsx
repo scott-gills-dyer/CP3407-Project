@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [restaurants, setRestaurants] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const restaurantsPerPage = 50;
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(
+        `${import.meta.env.VITE_API_URL}/api/restaurants?page=${currentPage}&limit=${restaurantsPerPage}`
+      )
+      .then((res) => {
+        setRestaurants(res.data.restaurants);
+        setTotalPages(res.data.totalPages);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [currentPage]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <h1>All Restaurants</h1>
+
+      {loading && <p>Loading restaurants...</p>}
+      {error && <p style={{ color: "red" }}>Error: {error}</p>}
+
+      {!loading && !error && (
+        <>
+          <ul className="restaurant-list">
+            {restaurants.map((r) => (
+              <li key={r.id}>
+                <strong>{r.name}</strong> - {r.category}
+              </li>
+            ))}
+          </ul>
+
+          <div className="pagination">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+              (num) => (
+                <button
+                  key={num}
+                  onClick={() => setCurrentPage(num)}
+                  className={currentPage === num ? "active" : ""}
+                >
+                  {num}
+                </button>
+              )
+            )}
+          </div>
+        </>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
