@@ -74,3 +74,5 @@ app.get("/api/restaurants/search", (req, res) => {
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+console.log("Connecting to DB host:", process.env.DB_HOST);
