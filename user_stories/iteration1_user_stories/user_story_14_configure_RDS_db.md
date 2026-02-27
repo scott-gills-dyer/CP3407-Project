@@ -5,8 +5,7 @@ Keep any other version here as well, e.g. Setup AWS RDS instance, Create cloud-h
 ## Priority: 10
 
 Required before backend integration.  
-Enables cloud-hosted relational persistence for Iteration-1 MVP.  
-Required to demonstrate use of modern cloud services (HD criteria).  
+Enables cloud-hosted relational persistence for Iteration-1 MVP.   
 
 ## Estimation: 3 days
 
