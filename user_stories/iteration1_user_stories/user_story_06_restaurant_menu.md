@@ -1,5 +1,7 @@
 ## User story title: View Restaurant Menu
 
+https://github.com/KoenMeecham/CP3407-Project/issues/8#issue-3956082158
+
 ## Priority: 10
 Priority Notes:
 Iteration 1 – Menu list + pricing
