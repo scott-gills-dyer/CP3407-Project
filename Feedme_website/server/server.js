@@ -7,11 +7,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const db = mysql.createConnection({
- host: process.env.DB_HOST,
- user: process.env.DB_USER,
- password: process.env.DB_PASSWORD,
- database: process.env.DB_NAME
+const mysql = require('mysql2');
+
+const connection = mysql.createConnection({
+  host: 'feedme-db.cvo8guucol94.ap-southeast-2.rds.amazonaws.com',
+  user: 'admin',
+  password: 'qQSszXp2VZ3X4Wf',
+  database: 'feedme'
 });
 
 db.connect(err => {
