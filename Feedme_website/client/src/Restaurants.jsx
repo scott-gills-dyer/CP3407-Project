@@ -13,18 +13,18 @@ export default function Restaurants() {
     fetchRestaurants(page);
   }, [page]);
 
-  const fetchRestaurants = async (pageNumber) => {
-    try {
-      const res = await axios.get(
-        `http://localhost:5000/api/restaurants?page=${pageNumber}&limit=${limit}`
-      );
+ const fetchRestaurants = async (pageNumber) => {
+  try {
+    const res = await axios.get(
+      `${import.meta.env.VITE_API_URL}/api/restaurants?page=${pageNumber}&limit=${limit}`
+    );
 
-      setRestaurants(res.data.restaurants);
-      setTotalPages(res.data.totalPages);
-    } catch (error) {
-      console.error("Error fetching restaurants:", error);
-    }
-  };
+    setRestaurants(res.data.restaurants);
+    setTotalPages(res.data.totalPages);
+  } catch (error) {
+    console.error("Error fetching restaurants:", error);
+  }
+};
 
   return (
     <div className="App">
