@@ -2,24 +2,25 @@ require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
-app.use(cors());
+// You no longer need CORS if everything runs from same server
 app.use(express.json());
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 80;
 
-// ✅ Connect to MySQL using environment variables
+//  Connect to MySQL using environment variables
 const db = mysql.createConnection({
-  host: process.env.DB_HOST,     // RDS host
-  user: process.env.DB_USER,     // admin
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  port: 3306                     // default MySQL port
+  port: 3306
 });
 
-// ✅ Actually connect to the database
+// Connect to database
 db.connect((err) => {
   if (err) {
     console.error("Database connection failed:", err);
@@ -28,14 +29,15 @@ db.connect((err) => {
   }
 });
 
-// ✅ Get restaurants with pagination
-// Example: /api/restaurants?page=1&limit=50
+
+// ================= API ROUTES =================
+
+// Get restaurants with pagination
 app.get("/api/restaurants", (req, res) => {
-  const page = parseInt(req.query.page) || 1; // default page 1
-  const limit = parseInt(req.query.limit) || 50; // default 50 per page
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 50;
   const offset = (page - 1) * limit;
 
-  // Get total count first
   db.query("SELECT COUNT(*) as count FROM Restaurants", (err, countResult) => {
     if (err) return res.status(500).json(err);
     const total = countResult[0].count;
@@ -57,7 +59,7 @@ app.get("/api/restaurants", (req, res) => {
   });
 });
 
-// ✅ Search restaurants
+// Search restaurants
 app.get("/api/restaurants/search", (req, res) => {
   const q = `%${req.query.q}%`;
   db.query(
@@ -70,9 +72,20 @@ app.get("/api/restaurants/search", (req, res) => {
   );
 });
 
-// ✅ Start server
+
+// ================= SERVE REACT =================
+
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+// React Router fix (must be LAST)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
+
+
+// ================= START SERVER =================
+
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-console.log("Connecting to DB host:", process.env.DB_HOST);
