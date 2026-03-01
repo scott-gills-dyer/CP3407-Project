@@ -79,10 +79,9 @@ app.get("/api/restaurants/search", (req, res) => {
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
 // React Router fix (must be LAST)
-app.get("/*", (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
-
 // ================= START SERVER =================
 
 app.listen(PORT, "0.0.0.0", () => {
