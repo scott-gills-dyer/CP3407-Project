@@ -16,7 +16,7 @@ export default function Restaurants() {
  const fetchRestaurants = async (pageNumber) => {
   try {
     const res = await axios.get(
-      `${import.meta.env.VITE_API_URL}/api/restaurants?page=${pageNumber}&limit=${limit}`
+      `/api/restaurants?page=${pageNumber}&limit=${limit}`
     );
 
     setRestaurants(res.data.restaurants);
